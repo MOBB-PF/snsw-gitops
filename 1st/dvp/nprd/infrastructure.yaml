@@ -1,0 +1,8 @@
+infrastructure:
+- name: reloader
+    targetRevision: "3.0.8"
+    chart: "reloader"
+    namespace: "cloud-infra"
+    path: ''
+    values: {}
+

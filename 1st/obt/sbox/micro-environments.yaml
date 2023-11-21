@@ -1,0 +1,22 @@
+repositories:
+  - "https://mobb-pf.github.io/helm-repository"
+  - git@github.com:redhat-blackbelt-online-boutique/online-boutique-cd.git
+
+microenvironments:
+  - name: ob
+    requests:
+      cpu: 30
+      memory: 22Gi
+    limits:
+      cpu: 30
+      memory: 22Gi
+    projects:
+      - name: sbox
+        labels: |
+          name: ob-sbox
+          argocd.argoproj.io/managed-by: openshift-gitops
+
+
+
+
+ 

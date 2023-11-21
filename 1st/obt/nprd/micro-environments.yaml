@@ -1,0 +1,56 @@
+repositories:
+  - "https://mobb-pf.github.io/helm-repository"
+  - git@github.com:redhat-blackbelt-online-boutique/online-boutique-cd.git
+
+microenvironments:
+  - name: ob
+    requests:
+      cpu: 30
+      memory: 22Gi
+    limits:
+      cpu: 30
+      memory: 22Gi
+    projects:
+      - name: dev
+        labels: |
+          name: ob-dev
+          argocd.argoproj.io/managed-by: openshift-gitops
+
+# DATA PLANE
+
+  - name: db
+    requests:
+      cpu: 2
+      memory: 2Gi
+    limits:
+      cpu: 2
+      memory: 2Gi
+    projects:
+      - name: dev
+        labels: |
+          name: db-dev
+        microservices:
+          - name: mssql-payments
+            gitRepo: git@github.com:redhat-blackbelt-online-boutique/online-boutique-cd.git
+            branch: dev-app-mssql
+            helmRepo: "https://mobb-pf.github.io/helm-repository"
+            chartName: mssql-linux
+            chartVersion: 0.2.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
