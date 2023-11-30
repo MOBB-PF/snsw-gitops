@@ -19,7 +19,7 @@ spec:
   source:
     repoURL: "{{ $defaults.helmRepo }}"
     targetRevision: "{{ $team.argocdPayloadRevision }}"
-    chart: "argocd-payload"
+    chart: "argocd-payload-snsw"
     helm:
       parameters:
         - name: "defaults.name"

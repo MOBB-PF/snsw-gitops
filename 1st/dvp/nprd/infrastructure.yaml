@@ -1,5 +1,5 @@
 infrastructure:
-- name: reloader
+  - name: reloader
     targetRevision: "3.0.8"
     chart: "reloader"
     namespace: "cloud-infra"
